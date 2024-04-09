@@ -6,7 +6,7 @@ esphome:
     board_build.esp-idf.memory_type: qio_opi
     board_build.flash_mode: dio
     board_upload.maximum_ram_size: 524288
-
+    
 esp32:
   board: esp32-s3-devkitc-1
   variant: esp32s3
@@ -14,9 +14,6 @@ esp32:
   partitions: "default_16MB.csv"
   framework:
     type: esp-idf
-# Required to get the latest RGB driver
-    platform_version: 6.3.2
-    version: 5.0.2
 # Required to achieve sufficient PSRAM bandwidth
     sdkconfig_options:
       CONFIG_ESP32S3_DEFAULT_CPU_FREQ_240: y
@@ -52,7 +49,7 @@ captive_portal:
     
 external_components:
  - source: github://clydebarrow/esphome@lvgl
-   components: [ image, lvgl, font, display, ft5x06 ] 
+   components: [ lvgl] 
     
 # Define a PWM output on the ESP32
 output:
